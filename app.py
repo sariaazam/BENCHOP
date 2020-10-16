@@ -1,10 +1,9 @@
 #!flask/bin/python
 from flask import Flask, jsonify
-from tasks import frequencies
 
 app = Flask(__name__)
 
-@app.route('/Table/<float:price>/<float:strike>/<float:time>/<float:rate>/<float:volatility>', methods=['GET'])
+@app.route('/Table/', methods=['GET'])
 def benchop(price, strike, time, rate, volatility):
         return 'results'
 
