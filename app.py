@@ -1,11 +1,18 @@
 #!flask/bin/python
 from flask import Flask, jsonify
+from oct2py import Oct2Py
+import pprint
+
 
 app = Flask(__name__)
 
-@app.route('/Table/', methods=['GET'])
-def benchop(price, strike, time, rate, volatility):
-        return 'results'
+@app.route('/table', methods=['GET'])
+def benchop():
+    oc = Oct2Py()
+    oc.addpath('/home/ubuntu/BENCHOP')
+    oc.run('Table.m')
+
+    return 'ok'
 
 
 if __name__ == '__main__':
