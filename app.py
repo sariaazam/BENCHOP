@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/table/<prob>', methods=['GET'])
 def process(prob):
-    results = benchop.delay(prob)
-    return 'queueing' prob
+    benchop.delay(prob)
+    return 'queueing ' + prob
 
 
 if __name__ == '__main__':

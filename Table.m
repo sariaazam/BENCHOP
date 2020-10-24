@@ -28,13 +28,14 @@ close all
 format long
 
 args = argv();
-pa1 = any(args(:) == 'pa1');
-pb1 = any(args(:) == 'pb1');
-pc1 = any(args(:) == 'pc1');
-pa2 = any(args(:) == 'pa2');
-pb2 = any(args(:) == 'pb2');
-pc2 = any(args(:) == 'pc2');
-pall = any(args(:) == 'pall');
+pa1 = ismember('pa1', args);
+pb1 = ismember('pb1', args);
+pc1 = ismember('pc1', args);
+pa2 = ismember('pa2', args);
+pb2 = ismember('pa2', args);
+pc2 = ismember('pb2', args);
+pall = ismember('pall', args);
+
 
 % addpath(genpath('./')); %adds all the functions from subfolders to the path
 % mfiles=getfilenames('./','BSeuCallU*.m')
