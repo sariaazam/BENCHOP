@@ -115,28 +115,28 @@ cd(rootpath);
 %% Problem 1 a) II
 
 
-display('Problem 1 a) II');
-rootpath=pwd;
-S=[97,98,99]; sig=0.01; r=0.1; T=0.25; K=100;
-U=[0.033913177006141   0.512978189232598   1.469203342553328];
+%display('Problem 1 a) II');
+%rootpath=pwd;
+%S=[97,98,99]; sig=0.01; r=0.1; T=0.25; K=100;
+%U=[0.033913177006141   0.512978189232598   1.469203342553328];
 
-filepathsBSeuCallUII=getfilenames('./','BSeuCallUII_*.m');
-par={S,K,T,r,sig};
-[timeBSeuCallUII,relerrBSeuCallUII] = executor(rootpath,filepathsBSeuCallUII,U,par)
+%filepathsBSeuCallUII=getfilenames('./','BSeuCallUII_*.m');
+%par={S,K,T,r,sig};
+%[timeBSeuCallUII,relerrBSeuCallUII] = executor(rootpath,filepathsBSeuCallUII,U,par)
 
-tBSeuCallUII=NaN(numel(Methods),1); rBSeuCallUII=NaN(numel(Methods),1);
-for ii=1:numel(Methods)
-    for jj=1:numel(filepathsBSeuCallUII)
-        a=filepathsBSeuCallUII{jj}(3:3+numel(Methods{ii}));
-        b=[Methods{ii},'/'];
-        if strcmp(a,b)
-            tBSeuCallUII(ii)=timeBSeuCallUII(jj);
-            rBSeuCallUII(ii)=relerrBSeuCallUII(jj);
-        end
-    end
-end
+%tBSeuCallUII=NaN(numel(Methods),1); rBSeuCallUII=NaN(numel(Methods),1);
+%for ii=1:numel(Methods)
+%    for jj=1:numel(filepathsBSeuCallUII)
+%        a=filepathsBSeuCallUII{jj}(3:3+numel(Methods{ii}));
+%        b=[Methods{ii},'/'];
+%        if strcmp(a,b)
+%            tBSeuCallUII(ii)=timeBSeuCallUII(jj);
+%            rBSeuCallUII(ii)=relerrBSeuCallUII(jj);
+%        end
+%    end
+%end
 
-cd(rootpath);
+%cd(rootpath);
 
 %% Problem 1 b) II
 
@@ -165,52 +165,56 @@ cd(rootpath);
 
 %% Problem 1 c) II
 
-display('Problem 1 c) II');
-rootpath=pwd;
-S=[97,98,99]; sig=0.01; r=0.1; T=0.25; K=100; B=1.25*K;
-U=[0.033913177006134   0.512978189232598   1.469203342553328];
+%display('Problem 1 c) II');
+%rootpath=pwd;
+%S=[97,98,99]; sig=0.01; r=0.1; T=0.25; K=100; B=1.25*K;
+%U=[0.033913177006134   0.512978189232598   1.469203342553328];
 
-filepathsBSupoutCallII=getfilenames('./','BSupoutCallII_*.m');
-par={S,K,T,r,sig,B};
-[timeBSupoutCallII,relerrBSupoutCallII] = executor(rootpath,filepathsBSupoutCallII,U,par)
+%filepathsBSupoutCallII=getfilenames('./','BSupoutCallII_*.m');
+%par={S,K,T,r,sig,B};
+%[timeBSupoutCallII,relerrBSupoutCallII] = executor(rootpath,filepathsBSupoutCallII,U,par)
 
-tBSupoutCallII=NaN(numel(Methods),1); rBSupoutCallII=NaN(numel(Methods),1);
-for ii=1:numel(Methods)
-    for jj=1:numel(filepathsBSupoutCallII)
-        a=filepathsBSupoutCallII{jj}(3:3+numel(Methods{ii}));
-        b=[Methods{ii},'/'];
-        if strcmp(a,b)
-            tBSupoutCallII(ii)=timeBSupoutCallII(jj);
-            rBSupoutCallII(ii)=relerrBSupoutCallII(jj);
-        end
-    end
-end
-
-cd(rootpath);
+%tBSupoutCallII=NaN(numel(Methods),1); rBSupoutCallII=NaN(numel(Methods),1);
+%for ii=1:numel(Methods)
+%    for jj=1:numel(filepathsBSupoutCallII)
+%        a=filepathsBSupoutCallII{jj}(3:3+numel(Methods{ii}));
+%        b=[Methods{ii},'/'];
+%        if strcmp(a,b)
+%            tBSupoutCallII(ii)=timeBSupoutCallII(jj);
+%            rBSupoutCallII(ii)=relerrBSupoutCallII(jj);
+%        end
+%    end
+%end
+%
+%cd(rootpath);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Table2=table(tBSeuCallUI,tBSamPutUI,tBSupoutCallI,tBSeuCallUII,tBSamPutUII,tBSupoutCallII,'RowNames',Methods)
-err=[rBSeuCallUI,rBSamPutUI,rBSupoutCallI,rBSeuCallUII,rBSamPutUII,rBSupoutCallII];
-err=round(log10(err));
+%Table2=table(tBSeuCallUI,tBSamPutUI,tBSupoutCallI,tBSeuCallUII,tBSamPutUII,tBSupoutCallII,'RowNames',Methods)
+%err=[rBSeuCallUI,rBSamPutUI,rBSupoutCallI,rBSeuCallUII,rBSamPutUII,rBSupoutCallII];
+
+%Table2=table(tBSeuCallUI,tBSamPutUI,tBSupoutCallI,tBSamPutUII,'RowNames',Methods)
+%err=[rBSeuCallUI,rBSamPutUI,rBSupoutCallI,rBSamPutUII];
+
+%err=round(log10(err));
 
 % Now use this table as input in our input struct:
-input.data = Table2;
-input.error = err;
+%input.data = Table2;
+%input.error = err;
 
 % Set the row format of the data values (in this example we want to use
 % integers only):
-input.dataFormat = {'%.1e'};
+%input.dataFormat = {'%.1e'};
 
 % Switch transposing/pivoting your table:
-input.transposeTable = 1;
+%input.transposeTable = 1;
 
 % Column alignment ('l'=left-justified, 'c'=centered,'r'=right-justified):
-input.tableColumnAlignment = 'c';
+%input.tableColumnAlignment = 'c';
 
 % Switch table borders on/off:
-input.tableBorders = 0;
+%input.tableBorders = 0;
 
 % Switch to generate a complete LaTex document or just a table:
-input.makeCompleteLatexDocument = 0;
+%input.makeCompleteLatexDocument = 0;
 
-latex = latexTable(input);
+%latex = latexTable(input);

@@ -1,17 +1,12 @@
 #!flask/bin/python
 from flask import Flask, jsonify
-from oct2py import Oct2Py
-import pprint
-
+from tasks import benchop
 
 app = Flask(__name__)
 
 @app.route('/table', methods=['GET'])
-def benchop():
-    oc = Oct2Py()
-    oc.addpath('/home/ubuntu/BENCHOP')
-    oc.run('Table.m')
-
+def process():
+    results = benchop.delay()
     return 'ok'
 
 

@@ -4,12 +4,12 @@ import subprocess
 
 app = Flask(__name__)
 
-originalParameters = ["octave", "Table.m"]
+originalParameters = ["octave", "table1"]
 
 #Run all problems with default parameters
 @app.route('/runall', methods=['GET'])
 def run_all():
-	p = Popen(["octave", "Table.m", "all"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+	p = Popen(["octave", "table1", "all"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	output, err = p.communicate(b"input data that is passed to subprocess' stdin")
 	rc = p.returncode
 	return output
