@@ -4,10 +4,10 @@ from tasks import benchop
 
 app = Flask(__name__)
 
-@app.route('/table', methods=['GET'])
-def process():
-    results = benchop.delay()
-    return 'ok'
+@app.route('/table/<prob>', methods=['GET'])
+def process(prob):
+    results = benchop.delay(prob)
+    return 'queueing' prob
 
 
 if __name__ == '__main__':

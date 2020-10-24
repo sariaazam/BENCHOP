@@ -27,6 +27,15 @@ close all
 
 format long
 
+args = argv();
+pa1 = any(args(:) == 'pa1');
+pb1 = any(args(:) == 'pb1');
+pc1 = any(args(:) == 'pc1');
+pa2 = any(args(:) == 'pa2');
+pb2 = any(args(:) == 'pb2');
+pc2 = any(args(:) == 'pc2');
+pall = any(args(:) == 'pall');
+
 % addpath(genpath('./')); %adds all the functions from subfolders to the path
 % mfiles=getfilenames('./','BSeuCallU*.m')
 
@@ -38,6 +47,8 @@ Methods={'MC','MC-S','QMC-S','MLMC','MLMC-A',...
     'RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT'};
 
 %% Problem 1 a) I
+
+if pall || pa1
 
 display('Problem 1 a) I');
 rootpath=pwd;
@@ -62,7 +73,11 @@ end
 
 cd(rootpath);
 
+end
+
 %% Problem 1 b) I
+
+if pall || pb1
 
 display('Problem 1 b) I');
 rootpath=pwd;
@@ -87,7 +102,11 @@ end
 
 cd(rootpath);
 
+end
+
 %% Problem 1 c) I
+
+if pall || pc1
 
 display('Problem 1 c) I');
 rootpath=pwd;
@@ -112,8 +131,11 @@ end
 
 cd(rootpath);
 
+end
+
 %% Problem 1 a) II
 
+%if pall || pa2
 
 %display('Problem 1 a) II');
 %rootpath=pwd;
@@ -138,7 +160,11 @@ cd(rootpath);
 
 %cd(rootpath);
 
+%end
+
 %% Problem 1 b) II
+
+if pall || pb2
 
 display('Problem 1 b) II');
 rootpath=pwd;
@@ -163,7 +189,11 @@ end
 
 cd(rootpath);
 
+end
+
 %% Problem 1 c) II
+
+%if pall || pc2
 
 %display('Problem 1 c) II');
 %rootpath=pwd;
@@ -185,8 +215,10 @@ cd(rootpath);
 %        end
 %    end
 %end
-%
+
 %cd(rootpath);
+
+%end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Table2=table(tBSeuCallUI,tBSamPutUI,tBSupoutCallI,tBSeuCallUII,tBSamPutUII,tBSupoutCallII,'RowNames',Methods)
