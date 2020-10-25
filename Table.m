@@ -32,8 +32,8 @@ pa1 = ismember('pa1', args);
 pb1 = ismember('pb1', args);
 pc1 = ismember('pc1', args);
 pa2 = ismember('pa2', args);
-pb2 = ismember('pa2', args);
-pc2 = ismember('pb2', args);
+pb2 = ismember('pb2', args);
+pc2 = ismember('pc2', args);
 pall = ismember('pall', args);
 
 
