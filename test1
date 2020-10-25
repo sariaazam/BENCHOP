@@ -24,7 +24,7 @@ def input(problem):
 	
 	parameterList.append(problem)
 	
-	#iterate through the dict from request to get parameters
+	#iterate through the dict from request to get Parameters
 	for k,v in request.args.iteritems():
 		parameter = k + "=" + v
 		parameterList.append(parameter)
